@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { Slot, Fill } from "react-slot-fill";
-import { injectGlobal } from "emotion";
+import { css, injectGlobal } from "emotion";
 import Grid from "material-ui/Grid";
 import MenuIcon from "material-ui-icons/Menu";
 import AppBar from "material-ui/AppBar";
@@ -11,13 +11,20 @@ import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
 import IconButton from "material-ui/IconButton";
 
+export const GreedyFlexBox = css`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`;
+
 export const globalCSS = injectGlobal`
 html {
   font-size: 62.5%;
 }
-html, body {
+html, body, #root {
   margin: 0;
   padding: 0;
+  ${GreedyFlexBox}
 }
 body {
   font-size: 1.3rem
@@ -30,22 +37,25 @@ export const Module = ({ children }) => (
   </Fill>
 );
 
-export const GlobalActionButton = ({ children, label }) => (
+export const GlobalActionButton = ({ children, label, ...props }) => (
   <Fill name="layout-headers-actions">
-    <IconButton color="contrast" aria-label={label}>
+    <IconButton color="contrast" aria-label={label} {...props}>
       {children}
     </IconButton>
   </Fill>
 );
 
-export const MenuEntry = ({ icon, label, ...linkProps }) => (
+export const MenuEntry = ({ icon, label, children, ...linkProps }) => (
   <Fill name="layout-menu-entries">
-    <ListItem button>
-      {icon && <ListItemIcon>{icon}</ListItemIcon>}
-      <ListItemText primary={<Link children={label} {...linkProps} />} />
-    </ListItem>
+    <Link css={{ textDecoration: "none" }} {...linkProps}>
+      <ListItem button>
+        {icon && <ListItemIcon>{icon}</ListItemIcon>}
+        <ListItemText primary={label} />
+      </ListItem>
+    </Link>
   </Fill>
 );
+
 export default class Layout extends React.Component {
   state = {
     menu: false
@@ -55,7 +65,7 @@ export default class Layout extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className={GreedyFlexBox}>
           <AppBar>
             <Toolbar>
               <IconButton
@@ -82,11 +92,15 @@ export default class Layout extends React.Component {
               <Slot name="layout-menu-entries" />
             </List>
           </Drawer>
-          <Grid container>
-            <Grid item xs={12} css={{ marginTop: 64 }}>
-              <Slot name="layout-modules" />
-            </Grid>
-          </Grid>
+          <div
+            className={GreedyFlexBox}
+            css={{
+              marginTop: 62,
+              padding: "1.2rem 1.6rem"
+            }}
+          >
+            <Slot name="layout-modules" />
+          </div>
           {this.props.modules}
         </div>
       </Router>
