@@ -1,6 +1,4 @@
-/* eslint-disable */
-module.exports = function override(config, env) {
-  return require("react-app-rewire-emotion")(config, env, {
-    inline: process.env.NODE_ENV !== "production"
-  });
-};
+/* eslint-disable import/no-extraneous-dependencies */
+const { injectBabelPlugin } = require("react-app-rewired");
+
+module.exports = config => injectBabelPlugin("babel-macros", config);

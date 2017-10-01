@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Slot, Fill } from "react-slot-fill";
-import { css, injectGlobal } from "emotion";
-import Grid from "material-ui/Grid";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Slot } from "react-slot-fill";
+import { css, injectGlobal } from "emotion/macro";
 import MenuIcon from "material-ui-icons/Menu";
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
-import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
+import List from "material-ui/List";
 import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
 import IconButton from "material-ui/IconButton";
@@ -30,31 +29,6 @@ body {
   font-size: 1.3rem
 }
 `;
-
-export const Module = ({ children }) => (
-  <Fill name="layout-modules">
-    <div>{children}</div>
-  </Fill>
-);
-
-export const GlobalActionButton = ({ children, label, ...props }) => (
-  <Fill name="layout-headers-actions">
-    <IconButton color="contrast" aria-label={label} {...props}>
-      {children}
-    </IconButton>
-  </Fill>
-);
-
-export const MenuEntry = ({ icon, label, children, ...linkProps }) => (
-  <Fill name="layout-menu-entries">
-    <Link css={{ textDecoration: "none" }} {...linkProps}>
-      <ListItem button>
-        {icon && <ListItemIcon>{icon}</ListItemIcon>}
-        <ListItemText primary={label} />
-      </ListItem>
-    </Link>
-  </Fill>
-);
 
 export default class Layout extends React.Component {
   state = {
