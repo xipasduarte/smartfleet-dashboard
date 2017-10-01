@@ -1,7 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/react";
-// import { action } from "@storybook/addon-actions";
-// import { linkTo } from "@storybook/addon-links";
-import base from "./base";
 
-storiesOf("App", module).add("General Structure", () => base);
+import React from "react";
+import App from "../modules/App";
+import Alerts from "../modules/Alerts";
+import Section from "../modules/Section";
+
+storiesOf("App").add("General Structure", () => (
+  <App>
+    <Alerts />
+    <Section />
+  </App>
+));
