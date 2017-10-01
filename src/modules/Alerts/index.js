@@ -1,6 +1,6 @@
 import React from "react";
 import Notifications from "material-ui-icons/Notifications";
-import { Module, GlobalActionButton } from "../SmartFleet";
+import { Module, GlobalActionButton } from "../App";
 
 export default class Alerts extends React.Component {
   render() {

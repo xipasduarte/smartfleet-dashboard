@@ -1,9 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { Module, MenuEntry } from "../SmartFleet";
+import { Module, MenuEntry } from "../App";
 import Single from "./containers/Single";
 
-export default class Cars extends React.Component {
+export default class Section extends React.Component {
   render() {
     return (
       <Module>

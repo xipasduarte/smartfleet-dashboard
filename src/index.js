@@ -1,9 +1,18 @@
 import ReactDOM from "react-dom";
+import React from "react";
+
+import App from "./modules/App";
+import Alerts from "./modules/Alerts";
+import Section from "./modules/Section";
 
 import registerServiceWorker from "./registerServiceWorker";
 
-// TODO: PROVISIONAL
-import base from "./stories/base";
+ReactDOM.render(
+  <App>
+    <Alerts />
+    <Section />
+  </App>,
+  document.getElementById("root")
+);
 
-ReactDOM.render(base, document.getElementById("root"));
 registerServiceWorker();

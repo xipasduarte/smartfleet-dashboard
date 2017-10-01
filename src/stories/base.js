@@ -1,11 +1,11 @@
 import React from "react";
-import SmartFleet from "../modules/SmartFleet";
+import App from "../modules/App";
 import Alerts from "../modules/Alerts";
-import Cars from "../modules/Cars";
+import Section from "../modules/Section";
 
 export default (
-  <SmartFleet>
+  <App>
     <Alerts />
-    <Cars />
-  </SmartFleet>
+    <Section />
+  </App>
 );
