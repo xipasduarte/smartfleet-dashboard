@@ -23,7 +23,7 @@ function getImportSources(callExpressionPath, cwd) {
   return glob.sync(globValue, { cwd });
 }
 
-function exportAll({ references, state, babel }) {
+function exportAllDefaultsFrom({ references, state, babel }) {
   references.default.forEach(referencePath => {
     const { types } = babel;
     const { file: { opts: { filename } } } = state;
@@ -58,4 +58,4 @@ function exportAll({ references, state, babel }) {
   });
 }
 
-module.exports = createMacro(exportAll);
+module.exports = createMacro(exportAllDefaultsFrom);

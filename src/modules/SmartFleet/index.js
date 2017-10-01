@@ -1,5 +1,5 @@
-import exportAll from "../utils/exportAll.macro";
+import exportAllDefaultsFrom from "../utils/exportAllDefaultsFrom.macro";
 
-exportAll("./components/*.js");
+exportAllDefaultsFrom("./components/*");
 
 export { default } from "./containers/App";

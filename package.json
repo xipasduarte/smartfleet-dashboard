@@ -10,6 +10,7 @@
     "material-ui-icons": "^1.0.0-beta.10",
     "react": "15",
     "react-dom": "15",
+    "react-emotion": "^7.3.2",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
     "react-slot-fill": "^1.0.1"
@@ -26,6 +27,7 @@
     "@storybook/addon-links": "^3.2.10",
     "@storybook/react": "^3.2.11",
     "babel-macros": "^1.0.2",
+    "babel-plugin-emotion": "^7.3.2",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-react-app": "^0.0.0",
     "eslint": "^4.7.2",
